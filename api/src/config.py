@@ -5,6 +5,7 @@ import os
 
 
 class BaseConfig(object):
+    APPLICATION_ROOT = '/api'
     SECRET_KEY = os.environ['SECRET_KEY']
     DEBUG = os.environ['DEBUG']
     DB_NAME = os.environ['DB_NAME']

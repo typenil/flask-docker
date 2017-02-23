@@ -4,9 +4,19 @@ web:
   expose:
     - "8000"
   links:
-    - postgres:postgres
+    - api:api
   volumes:
     - /usr/src/app/static
+  env_file: .env
+  command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
+
+api:
+  restart: always
+  build: ./api
+  expose:
+    - "8000"
+  links:
+    - postgres:postgres
   env_file: .env
   command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
 
@@ -19,8 +29,10 @@ nginx:
     - /www/static
   volumes_from:
     - web
+    - api
   links:
     - web:web
+    - api:api
 
 data:
   image: postgres:latest
