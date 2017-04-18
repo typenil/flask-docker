@@ -5,7 +5,7 @@ PORT=80
 TAG=latest
 ### End of edit ###
 
-IMG=whimatthew/$(IMG_NAME)
+IMG=typenil/$(IMG_NAME)
 CONTAINER=$(IMG_NAME)
 RUNOPTS=-p $(PORT):80
 FQ_IMG?=$(IMG):$(TAG)
