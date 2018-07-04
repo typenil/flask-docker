@@ -1,7 +1,7 @@
 ## Dockerizing Flask With Compose and Machine - From Localhost to the Cloud
 [![Build Status](https://travis-ci.org/typenil/flask-docker.svg?branch=master)](https://travis-ci.org/typenil/flask-docker)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/c14f2bd3491462fadce9/test_coverage)](https://codeclimate.com/github/typenil/flask-docker/test_coverage)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c14f2bd3491462fadce9/maintainability)](https://codeclimate.com/github/typenil/flask-docker/maintainability)
+<!-- [![Test Coverage](https://api.codeclimate.com/v1/badges/c14f2bd3491462fadce9/test_coverage)](https://codeclimate.com/github/typenil/flask-docker/test_coverage) -->
 
 Featuring:
 
