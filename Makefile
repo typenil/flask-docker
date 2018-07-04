@@ -49,4 +49,4 @@ code-coverage:
 	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage report -m"
 
 travis-coverage:
-	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage xml && cat coverage.xml" | tee coverage.xml
+	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage xml && cat coverage.xml" | tee api/coverage.xml

@@ -15,4 +15,5 @@ script:
   - make test
   - make travis-coverage
 after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - cd api
+  - ../cc-test-reporter after-build --exit-code 0 -t coverage.py
