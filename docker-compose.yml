@@ -8,7 +8,7 @@ web:
   volumes:
     - /usr/src/app/static
   env_file: .env
-  command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
+  command: ./wait-for-it.sh api:8000 -- /usr/local/bin/gunicorn -w 2 -b :8000 app:app
 
 api:
   restart: always
@@ -18,7 +18,7 @@ api:
   links:
     - postgres:postgres
   env_file: .env
-  command: /usr/local/bin/gunicorn -w 2 -b :8000 app:app
+  command: ./wait-for-it.sh postgres:5432 -- /usr/local/bin/gunicorn -w 2 -b :8000 app:app
 
 nginx:
   restart: always
@@ -33,6 +33,7 @@ nginx:
   links:
     - web:web
     - api:api
+  command: ./wait-for-it.sh web:8000
 
 data:
   image: postgres:latest

@@ -11,7 +11,6 @@ RUNOPTS=-p $(PORT):80
 FQ_IMG?=$(IMG):$(TAG)
 
 SERVICE=web
-TEST_REGEX=*test.py
 
 pull:
 	docker-compose pull
@@ -43,5 +42,11 @@ envs:
 enter:
 	docker-compose run $(SERVICE) bash
 
-test: build
-	docker-compose run $(SERVICE) bash -c "/usr/local/bin/python -m unittest discover --pattern $(TEST_REGEX)"
+test:
+	docker-compose run api bash -c "py.test test/"
+
+code-coverage:
+	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage report -m"
+
+travis-coverage:
+	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage xml &&cat coverage.xml" > coverage.xml
