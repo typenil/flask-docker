@@ -13,6 +13,9 @@ FQ_IMG?=$(IMG):$(TAG)
 SERVICE=web
 TEST_REGEX=*test.py
 
+pull:
+	docker-compose pull
+
 push:
 	docker-compose push
 
