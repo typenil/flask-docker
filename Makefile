@@ -46,7 +46,8 @@ test:
 	docker-compose run api bash -c "py.test test/"
 
 code-coverage:
-	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage report -m"
+	docker-compose run api bash -c "py.test --cov=src test/"
 
 travis-coverage:
-	docker-compose run api bash -c "coverage run --omit test/* test/ && coverage xml && cat coverage.xml" | tee api/coverage.xml
+	docker-compose run api bash -c "py.test --cov-report xml --cov=src test/"
+	docker-compose run api bash -c "cat coverage.xml" | tee api/coverage.xml
