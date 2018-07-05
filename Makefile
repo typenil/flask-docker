@@ -49,4 +49,4 @@ code-coverage:
 	docker-compose run api bash -c "py.test --cov=src test/"
 
 travis-coverage:
-	docker-compose run api bash -c "py.test --cov-report xml --cov=src test/ > /dev/null 2>&1 && cat coverage.xml" | tee api/coverage.xml
+	docker-compose run api bash -c "py.test --cov-report xml --cov=src test/ > /dev/null 2>&1 && cat coverage.xml" | tee api/src/coverage.xml

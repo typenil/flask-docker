@@ -15,5 +15,5 @@ script:
   - make test
   - make travis-coverage
 after_script:
-  - cd api
-  - ../cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - cd api/src
+  - ../../cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
